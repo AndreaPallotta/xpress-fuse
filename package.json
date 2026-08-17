@@ -1,39 +1,77 @@
 {
-    "name": "xpress-fuse",
-    "version": "0.1.0",
-    "description": "A minimal, lightweight middleware bundle for Express.js",
-    "main": "index.js",
-    "scripts": {
-        "test": "jest",
-        "lint": "eslint .",
-        "build": "echo \"No build process required\""
-    },
-    "keywords": [
-        "express",
-        "middleware",
-        "minimal",
-        "lightweight",
-        "bundle"
-    ],
-    "author": "Andrea Pallotta",
-    "license": "MIT",
-    "dependencies": {
-        "compression": "^1.8.0",
-        "connect-timeout": "^1.9.0",
-        "cors": "^2.8.5",
-        "express-rate-limit": "^7.5.0",
-        "helmet": "^8.0.0",
-        "morgan": "^1.10.0"
-    },
-    "devDependencies": {
-        "@types/express": "^5.0.0",
-        "@types/jest": "^29.5.14",
-        "eslint": "^9.21.0",
-        "jest": "^29.7.0",
-        "supertest": "^7.0.0",
-        "typescript": "^5.8.2"
-    },
-    "peerDependencies": {
-        "express": "^4.21.2"
+  "name": "xpress-fuse",
+  "version": "0.2.0",
+  "description": "Production-ready, lightweight middleware bundle for Express.js with TypeScript support",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "jest",
+    "lint": "eslint src test",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "bundle",
+    "security",
+    "helmet",
+    "cors",
+    "compression",
+    "rate-limit",
+    "morgan",
+    "typescript",
+    "minimal",
+    "lightweight"
+  ],
+  "author": "Andrea Pallotta",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreaPallotta/xpress-fuse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AndreaPallotta/xpress-fuse/issues"
+  },
+  "homepage": "https://github.com/AndreaPallotta/xpress-fuse#readme",
+  "dependencies": {
+    "compression": "^1.8.0",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.5",
+    "@types/connect-timeout": "^0.0.39",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/morgan": "^1.9.9",
+    "eslint": "^9.21.0",
+    "express": "^4.21.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "tsup": "^8.3.6",
+    "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "express": "^4.21.2 || ^5.0.0"
+  }
 }
